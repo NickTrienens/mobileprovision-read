@@ -107,6 +107,8 @@ You can also use \033[1mkey path\033[0m as an option.\n\
         if (result) {
             if ([result isKindOfClass:[NSArray class]] && [result count]) {
                 printf("%s\n", [[result componentsJoinedByString:@"\n"] UTF8String]);
+                printf("Devices included: %d\n", [result count]);
+
             }
             else {
                 printf("%s\n", [[result description] UTF8String]);
