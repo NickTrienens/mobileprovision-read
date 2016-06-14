@@ -105,7 +105,7 @@ You can also use \033[1mkey path\033[0m as an option.\n\
         id result = [plist valueForKeyPath:@"ProvisionedDevices"];
         if (result) {
             if ([result isKindOfClass:[NSArray class]] && [result count]) {
-                printf("Devices included: %lu\n", [result count]);
+                printf("%lu\n", [result count]);
             }
         }
     }
