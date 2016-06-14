@@ -101,6 +101,13 @@ You can also use \033[1mkey path\033[0m as an option.\n\
         NSString *applicationIdentifier = [plist valueForKeyPath:@"Entitlements.application-identifier"];
         NSString *prefix = [[[plist valueForKeyPath:@"ApplicationIdentifierPrefix"] objectAtIndex:0] stringByAppendingString:@"."];
         printf("%s\n", [[applicationIdentifier stringByReplacingOccurrencesOfString:prefix withString:@""] UTF8String]);
+    } else if ([option isEqualToString:@"ProvisionedDevicesCount"]) {
+        id result = [plist valueForKeyPath:@"ProvisionedDevices"];
+        if (result) {
+            if ([result isKindOfClass:[NSArray class]] && [result count]) {
+                printf("Devices included: %d\n", [result count]);
+            }
+        }
     }
     else {
         id result = [plist valueForKeyPath:option];
